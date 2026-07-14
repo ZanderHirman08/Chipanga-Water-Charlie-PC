@@ -107,14 +107,29 @@ code { background: var(--earth-light); padding: 0 4px; border-radius: 4px; }
   margin-top: 16px;
 }
 
-.legend {
+.map-pin {
+  border-radius: 50%;
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 12px;
-  font-size: .88rem;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,.4);
+  border: 2px solid #fff;
 }
-.legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+.leaflet-control-layers {
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12) !important;
+  font-family: inherit !important;
+}
+.leaflet-control-layers-overlays label {
+  font-size: .88rem;
+  color: var(--ink);
+  padding: 2px 0;
+}
+.leaflet-control-layers-expanded {
+  padding: 12px 14px !important;
+}
 .legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
 
 .calculator { margin-bottom: 30px; }
