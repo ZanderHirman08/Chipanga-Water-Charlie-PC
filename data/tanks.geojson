@@ -1,0 +1,36 @@
+{
+  "type": "FeatureCollection",
+  "properties": { "note": "Real survey data from notes.gpkg (QField), 2026-07-08" },
+  "features": [
+    { "type": "Feature", "properties": {
+        "kind": "solar_array",
+        "name": "Solar Array",
+        "description": "Solar panel footprint powering the borehole pump."
+      },
+      "geometry": { "type": "Polygon", "coordinates": [[[35.34561811,-6.23614419],[35.34569444,-6.23613441],[35.34568486,-6.23610486],[35.34560467,-6.23610673],[35.34561513,-6.23614839],[35.34561811,-6.23614419]]] } },
+    { "type": "Feature", "properties": {
+        "kind": "solar_fence",
+        "name": "Solar Fence",
+        "description": "Chain link fence enclosing the solar array and pump controller."
+      },
+      "geometry": { "type": "LineString", "coordinates": [[35.34558869,-6.23616417],[35.34559814,-6.23607398],[35.34571458,-6.23608614],[35.34569576,-6.23618165],[35.34558984,-6.23616521]] } },
+    { "type": "Feature", "properties": {
+        "kind": "pump",
+        "name": "Pump controller",
+        "description": "Pump controller, located inside the solar fence."
+      },
+      "geometry": { "type": "Point", "coordinates": [35.3456209, -6.23612151] } },
+    { "type": "Feature", "properties": {
+        "kind": "tank",
+        "name": "School Garden Tank",
+        "description": "8,000 gallons."
+      },
+      "geometry": { "type": "Point", "coordinates": [35.34588898, -6.23578903] } },
+    { "type": "Feature", "properties": {
+        "kind": "tank",
+        "name": "Women's Garden Tank",
+        "description": "8,000 gallons."
+      },
+      "geometry": { "type": "Point", "coordinates": [35.34589745, -6.23574596] } }
+  ]
+}

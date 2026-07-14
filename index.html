@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chipanga Water &amp; Garden Project</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <span class="brand">Chipanga Water &amp; Garden Project</span>
+    <nav>
+      <a href="#story">Story</a>
+      <a href="#map">Map</a>
+      <a href="#infrastructure">Infrastructure</a>
+      <a href="#water">Water &amp; Yield</a>
+      <a href="#support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>A well, two gardens, and a community in Chipanga, Tanzania</h1>
+    <p class="subtitle">A solar-powered borehole now feeds a school and a women's community garden — built over two years, funded by Rotary clubs around the world.</p>
+    <a href="#map" class="btn">See the project map</a>
+  </div>
+</section>
+
+<section id="story" class="section">
+  <div class="wrap">
+    <h2>The project</h2>
+    <p>
+      Over the past two years, living in Chipanga, Charlie has worked with the local community to solve a basic
+      problem: reliable water for a school and for the families who farm nearby. That work is now becoming
+      physical infrastructure — a borehole, a solar-powered pump, water storage tanks, and two garden sites
+      that will support a school garden and a ten-plot women's community garden on roughly one acre of land.
+    </p>
+    <p>
+      This page exists to show investors and funders exactly what has been built, what's planned next, and the
+      water and food-production numbers behind it — using survey data collected on the ground with QField/QGIS.
+    </p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <h2>Funding so far</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>$7,000</h3>
+        <p>Grant from the <strong>Longmont Rotary Club</strong>, funding the borehole itself — a 6-foot-wide, 180-meter-deep well.</p>
+      </div>
+      <div class="card">
+        <h3>Global Rotary network</h3>
+        <p>Additional support from community Rotary clubs around the world, coordinated through Rotary International's international project funding.</p>
+      </div>
+      <div class="card">
+        <h3>What's next</h3>
+        <p>Solar array, water tower and tanks, piping network, and buildout of the school and community garden plots.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="map" class="section">
+  <div class="wrap">
+    <h2>Site map</h2>
+    <p class="map-note" id="map-note">
+      Drawn from real GPS points collected on site with QField on 2026-07-08 — the borehole, solar array
+      and fence, pump controller, tanks, taps, pipe runs, and both garden plot boundaries. The 10 individual
+      plot divisions within the women's garden are planned but not yet staked out/surveyed, so the map shows
+      the garden's outer boundary only.
+    </p>
+    <div id="site-map"></div>
+    <div class="legend" id="map-legend"></div>
+  </div>
+</section>
+
+<section id="infrastructure" class="section alt">
+  <div class="wrap">
+    <h2>Infrastructure</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Borehole</h3>
+        <p>6 ft wide, 180 m deep. Maximum sustainable output: <strong>5,000 liters/hour</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>Solar pump system</h3>
+        <p>Submersible pump at the bottom of the well, wired to a solar array at the surface, next to the
+          borehole. The array and pump controller sit inside a surveyed chain-link fence.</p>
+      </div>
+      <div class="card">
+        <h3>Tanks (2 mapped)</h3>
+        <p>A tank for the school garden and a tank for the women's garden, each recorded on site at
+          8,000 gallons (~30,000 L). A separate drinking-water tank for the school building itself hasn't
+          been sited yet.</p>
+      </div>
+      <div class="card">
+        <h3>Piping network</h3>
+        <p>Four runs mapped so far: the bore hole pipe (well to garden area), the school head pipe (toward
+          the school), the main women's garden pipe, and a sub pipe running the length of a garden bed.
+          Five taps are in on the women's garden line.</p>
+      </div>
+      <div class="card">
+        <h3>Garden plots</h3>
+        <p>Women's garden: ~0.75 acre, complete and tilled — 10 individual plots to be divided within it.
+          School garden: one 15 × 45 m bed built so far; two more identical beds are planned directly
+          behind it, bringing the finished plot to 45 × 45 m (~0.5 acre) once complete.</p>
+      </div>
+      <div class="card">
+        <h3>School</h3>
+        <p>Adjacent to the garden site; the piping network's other endpoint.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="water" class="section">
+  <div class="wrap">
+    <h2>Water use &amp; sustainability</h2>
+    <p>
+      These figures translate the borehole's output and the garden's water needs into something investors can
+      check at a glance: does the well produce enough water, in every season, to run these gardens sustainably?
+      Every number below is adjustable — the defaults are planning estimates for a semi-arid climate and should
+      be refined with local agronomic data over time.
+    </p>
+
+    <div class="calculator card">
+      <h3>Interactive water budget calculator</h3>
+      <div class="calc-grid">
+        <div class="calc-controls">
+          <label>Season
+            <select id="calc-season">
+              <option value="dry">Dry season</option>
+              <option value="wet">Wet season</option>
+            </select>
+          </label>
+          <label>Crop
+            <select id="calc-crop">
+              <option value="leafy">Leafy greens</option>
+              <option value="tomatoes">Tomatoes</option>
+              <option value="okra">Okra</option>
+            </select>
+          </label>
+          <label>Watering method
+            <select id="calc-method">
+              <option value="hand">Hand watering</option>
+              <option value="drip">Drip irrigation</option>
+            </select>
+          </label>
+          <label>Mulch / compost applied
+            <select id="calc-mulch">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label>
+          <label>Garden area (m²)
+            <input type="number" id="calc-area" value="3051" min="1" step="1">
+          </label>
+          <p style="font-size:.78rem;color:#6b756f;margin-top:-6px;">Default = women's garden area (~0.75 acre, complete). Set to 675 for the school garden's current single bed, or 2018 for its full planned 45×45 m footprint.</p>
+        </div>
+        <div class="calc-results" id="calc-results"></div>
+      </div>
+    </div>
+
+    <div class="chart-grid">
+      <div class="card">
+        <h3>Daily water demand vs. well capacity</h3>
+        <canvas id="chart-demand"></canvas>
+      </div>
+      <div class="card">
+        <h3>Water savings: hand watering → drip + mulch</h3>
+        <canvas id="chart-savings"></canvas>
+      </div>
+      <div class="card">
+        <h3>Estimated seasonal food output</h3>
+        <canvas id="chart-yield"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="support" class="section alt">
+  <div class="wrap">
+    <h2>Support the next phase</h2>
+    <p>
+      The borehole is in. The next phase — solar panels, water towers and tanks, piping, and the garden
+      buildout — is what turns a working well into two productive, sustainable gardens for the school and the
+      women's community group in Chipanga.
+    </p>
+    <div class="card" style="margin-top:20px;">
+      <h3>Beyond construction: feeding students from the school garden</h3>
+      <p>
+        Once the school garden is fully producing, the harvest can supply regular lunches for students —
+        but that only works if the school board and parents contribute a small, predictable monthly amount
+        to cover the ongoing costs (a cook's stipend, tools, cooking fuel). <em>[Placeholder — cost per
+        month, number of students reached, and what exactly the monthly contribution covers, pending
+        numbers from Charlie.]</em> Making that case clearly, with real numbers, is part of what this site
+        is for.
+      </p>
+    </div>
+    <p><em>Contact details / donation link placeholder — add how investors can follow up.</em></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Chipanga Water &amp; Garden Project — site data collected in the field with QField / QGIS.</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="js/map.js"></script>
+<script src="js/calculator.js"></script>
+</body>
+</html>

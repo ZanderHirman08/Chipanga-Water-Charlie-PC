@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "properties": { "note": "Real survey data from notes.gpkg (QField), 2026-07-08" },
+  "features": [
+    { "type": "Feature", "properties": {
+        "kind": "well",
+        "name": "Bore hole",
+        "description": "180 meters deep. 6 ft wide. Maximum sustainable output: 5,000 liters/hour."
+      },
+      "geometry": { "type": "Point", "coordinates": [35.3455335, -6.23614329] } },
+    { "type": "Feature", "properties": {
+        "kind": "well_structure",
+        "name": "Bore hole structure",
+        "description": "Concrete well head structure."
+      },
+      "geometry": { "type": "Polygon", "coordinates": [[[35.34554112,-6.23614756],[35.34552587,-6.23614773],[35.34552423,-6.23613086],[35.34554171,-6.23613178],[35.34554089,-6.23614739],[35.34554112,-6.23614756]]] } }
+  ]
+}

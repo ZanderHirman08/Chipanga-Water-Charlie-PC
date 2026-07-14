@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "properties": { "note": "Real survey data from notes.gpkg (QField), 2026-07-08" },
+  "features": [
+    { "type": "Feature", "properties": { "kind": "tap", "name": "Women's garden tap 1", "description": "Each tap has two spigots." },
+      "geometry": { "type": "Point", "coordinates": [35.34607175, -6.23551129] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "Women's garden tap 2", "description": "Each tap has two spigots." },
+      "geometry": { "type": "Point", "coordinates": [35.34617144, -6.23553535] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "Women's garden tap 3", "description": "Each tap has two spigots." },
+      "geometry": { "type": "Point", "coordinates": [35.34628032, -6.23556087] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "Women's garden tap 4", "description": "Each tap has two spigots." },
+      "geometry": { "type": "Point", "coordinates": [35.34638472, -6.2355893] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "Women's garden tap 5", "description": "Each tap has two spigots." },
+      "geometry": { "type": "Point", "coordinates": [35.34649186, -6.23561729] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "Unlabeled point (near tap 4)", "description": "Recorded in the field with no title/note — likely a duplicate or unfinished entry, kept here for reference." },
+      "geometry": { "type": "Point", "coordinates": [35.34638183, -6.23558828] } }
+  ]
+}
