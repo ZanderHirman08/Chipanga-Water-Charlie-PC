@@ -53,6 +53,31 @@ site can help make the case *if* we can show the math.
 17. Any local agricultural extension yield numbers for leafy greens, tomatoes, or okra in the area —
     the site currently uses generic smallholder estimates, real local numbers would be better.
 
+## Tank stands (still under construction) — for figuring out water pressure
+
+The tank stands aren't finished yet, so their final height is the big unknown for working out how much
+water pressure the garden taps/drip lines will actually get once everything's running. Water pressure
+from a tank is basically driven by height — roughly 0.1 bar of pressure for every meter the water surface
+sits above the outlet — so the stand height matters a lot more than it might seem.
+
+23. Once finished, roughly how tall will each tank stand be — from the ground up to the bottom of the
+    tank itself? A target/estimate is fine if it's not finalized.
+24. What are the tank's height and diameter? (Combined with the stand height, this gives the total height
+    of the water surface above the ground when the tank is full — and that height drops as the tank
+    empties, so also: about how full do you expect the tanks to typically be during use?)
+25. Is the ground where the garden taps are roughly level with the tank stands, or noticeably higher or
+    lower? Even a rough sense ("garden is a bit lower," "pretty much flat") is enough.
+26. About how far is the pipe run from each tank to the farthest tap it feeds (in meters), and what
+    diameter/material is that pipe (e.g. 1/2", 3/4", 1" PVC or poly)? Longer, narrower pipe runs lose more
+    pressure to friction.
+27. Will multiple taps typically be open and running at the same time, or one at a time? Pressure drops
+    when several outlets share the same line at once.
+28. Is the water going straight to taps/hoses for hand watering, or will it run through drip line
+    emitters? If drip: do you know the operating pressure range printed on the emitter/kit packaging
+    (often something like "0.5–1.5 bar")? That's the target the final setup needs to hit.
+29. Is there any pump or pressure booster planned between the tank and the garden, or is it meant to be
+    purely gravity-fed off the stand height?
+
 ## Photos, branding, and the ask itself
 
 18. I've got the 26 field photos from the DCIM folder in the QField data — can you (or Charlie) send
