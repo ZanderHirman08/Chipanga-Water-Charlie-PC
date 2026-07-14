@@ -50,7 +50,8 @@ function popupFor(feature) {
   const p = feature.properties;
   const title = p.name || p.label || 'Feature';
   const desc = p.description ? `<br>${p.description}` : '';
-  return `<strong>${title}</strong>${desc}`;
+  const photo = p.photo ? `<br><img src="${p.photo}" alt="${title}" style="width:220px;max-width:100%;border-radius:6px;margin-top:6px;">` : '';
+  return `<strong>${title}</strong>${desc}${photo}`;
 }
 
 function pointRenderer(feature, latlng) {

@@ -5,19 +5,22 @@
     { "type": "Feature", "properties": {
         "kind": "solar_array",
         "name": "Solar Array",
-        "description": "Solar panel footprint powering the borehole pump."
+        "description": "Solar panel footprint powering the borehole pump.",
+        "photo": "images/solar-array.jpg"
       },
       "geometry": { "type": "Polygon", "coordinates": [[[35.34561811,-6.23614419],[35.34569444,-6.23613441],[35.34568486,-6.23610486],[35.34560467,-6.23610673],[35.34561513,-6.23614839],[35.34561811,-6.23614419]]] } },
     { "type": "Feature", "properties": {
         "kind": "solar_fence",
         "name": "Solar Fence",
-        "description": "Chain link fence enclosing the solar array and pump controller."
+        "description": "Chain link fence enclosing the solar array and pump controller.",
+        "photo": "images/solar-fence.jpg"
       },
       "geometry": { "type": "LineString", "coordinates": [[35.34558869,-6.23616417],[35.34559814,-6.23607398],[35.34571458,-6.23608614],[35.34569576,-6.23618165],[35.34558984,-6.23616521]] } },
     { "type": "Feature", "properties": {
         "kind": "pump",
         "name": "Pump controller",
-        "description": "Pump controller, located inside the solar fence."
+        "description": "Pump controller, located inside the solar fence.",
+        "photo": "images/pump-controller.jpg"
       },
       "geometry": { "type": "Point", "coordinates": [35.3456209, -6.23612151] } },
     { "type": "Feature", "properties": {
