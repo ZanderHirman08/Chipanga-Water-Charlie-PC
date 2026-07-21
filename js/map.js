@@ -51,8 +51,7 @@ function coordsToLatLng(coord) {
 
 const KIND_STYLE = {
   womens_garden:          { color: '#4c7a5e', weight: 2, fillOpacity: 0.25 },
-  school_garden_built:    { color: '#3d7ea6', weight: 2, fillOpacity: 0.3 },
-  school_garden_planned:  { color: '#3d7ea6', weight: 2, fillOpacity: 0.1, dashArray: '6 4' },
+  school_garden:          { color: '#3d7ea6', weight: 2, fillOpacity: 0.3 },
   well_structure:         { color: '#a9754f', weight: 2, fillOpacity: 0.35 },
   solar_array:            { color: '#e5b800', weight: 2, fillOpacity: 0.3 },
   solar_fence:            { color: '#c0392b', weight: 2, dashArray: '4 3' },

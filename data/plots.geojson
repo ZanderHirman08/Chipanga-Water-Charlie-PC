@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "properties": { "note": "Real survey data from notes.gpkg (QField), 2026-07-08. School garden beds 2 & 3 are computed extrapolations (not surveyed) confirmed against Charlie's description that the built bed repeats twice more behind itself to reach the full 45x45m plot." },
+  "properties": { "note": "Real survey data from notes.gpkg (QField), 2026-07-08. School garden polygon is a straightened/scaled rectangle: orientation and anchor corner taken from the first surveyed bed's real edge, squared to true right angles and scaled to the full planned 45x45m plot (the raw survey trapezoid had GPS-noise-driven distortion)." },
   "features": [
     { "type": "Feature", "properties": {
         "kind": "womens_garden",
@@ -8,19 +8,9 @@
       },
       "geometry": { "type": "Polygon", "coordinates": [[[35.34593082,-6.23569653],[35.3460418,-6.23525415],[35.34657293,-6.23539185],[35.3464601,-6.23583001],[35.34592855,-6.23569892],[35.34593082,-6.23569653]]] } },
     { "type": "Feature", "properties": {
-        "kind": "school_garden_built",
-        "label": "School Garden — Bed 1 (built), 15 x 45 m"
+        "kind": "school_garden",
+        "label": "School Garden — 45 x 45 m (~0.5 acre) planned footprint; 1 of 3 beds (15 x 45 m) built so far"
       },
-      "geometry": { "type": "Polygon", "coordinates": [[[35.34590812,-6.2358302],[35.34580068,-6.23622446],[35.34593539,-6.23624902],[35.34604014,-6.23587022],[35.34590812,-6.2358302]]] } },
-    { "type": "Feature", "properties": {
-        "kind": "school_garden_planned",
-        "label": "School Garden — Bed 2 (planned), 15 x 45 m"
-      },
-      "geometry": { "type": "Polygon", "coordinates": [[[35.34604148,-6.23586249],[35.34593405,-6.23625675],[35.34606876,-6.23628131],[35.3461735,-6.23590251],[35.34604148,-6.23586249]]] } },
-    { "type": "Feature", "properties": {
-        "kind": "school_garden_planned",
-        "label": "School Garden — Bed 3 (planned), 15 x 45 m"
-      },
-      "geometry": { "type": "Polygon", "coordinates": [[[35.34617485,-6.23589478],[35.34606741,-6.23628904],[35.34620212,-6.2363136],[35.34630687,-6.2359348],[35.34617485,-6.23589478]]] } }
+      "geometry": { "type": "Polygon", "coordinates": [[[35.34590812,-6.2358302],[35.34580109,-6.23622294],[35.3461934,-6.23633008],[35.34630043,-6.23593734],[35.34590812,-6.2358302]]] } }
   ]
 }
