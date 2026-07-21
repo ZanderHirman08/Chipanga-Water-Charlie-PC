@@ -13,6 +13,18 @@
     { "type": "Feature", "properties": { "kind": "tap", "name": "Women's garden tap 5", "description": "Each tap has two spigots." },
       "geometry": { "type": "Point", "coordinates": [35.34649186, -6.23561729] } },
     { "type": "Feature", "properties": { "kind": "tap", "name": "Unlabeled point (near tap 4)", "description": "Recorded in the field with no title/note — likely a duplicate or unfinished entry, kept here for reference." },
-      "geometry": { "type": "Point", "coordinates": [35.34638183, -6.23558828] } }
+      "geometry": { "type": "Point", "coordinates": [35.34638183, -6.23558828] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "School garden tap 1", "description": "On the header pipe." },
+      "geometry": { "type": "Point", "coordinates": [35.3458534, -6.23623723] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "School garden tap 2", "description": "On the header pipe." },
+      "geometry": { "type": "Point", "coordinates": [35.34593186, -6.23625865] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "School garden tap 3", "description": "On the header pipe." },
+      "geometry": { "type": "Point", "coordinates": [35.34601033, -6.23628008] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "School garden tap 4", "description": "On the header pipe." },
+      "geometry": { "type": "Point", "coordinates": [35.34608879, -6.23630151] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "School garden tap 5", "description": "On the header pipe." },
+      "geometry": { "type": "Point", "coordinates": [35.34615853, -6.23632056] } },
+    { "type": "Feature", "properties": { "kind": "tap", "name": "School garden tap 6", "description": "At the far end of the extended edge pipe." },
+      "geometry": { "type": "Point", "coordinates": [35.34630043, -6.23593734] } }
   ]
 }

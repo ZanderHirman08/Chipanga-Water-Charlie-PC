@@ -4,8 +4,10 @@
   "features": [
     { "type": "Feature", "properties": { "kind": "pipe", "name": "Bore hole pipe", "description": "Main water supply from the borehole. 1.5\" HDPE, Class D (thicker, higher-pressure)." },
       "geometry": { "type": "LineString", "coordinates": [[35.34553325,-6.23612978],[35.34588053,-6.23576462]] } },
-    { "type": "Feature", "properties": { "kind": "pipe", "name": "School head pipe", "description": "Head pipe running from the school garden's corner toward the school. Straightened to run along the plot's length then width, instead of the original diagonal survey line. 1.5\" HDPE, Class C distribution line — about 80 m to the far end of the school side." },
-      "geometry": { "type": "LineString", "coordinates": [[35.34590812,-6.2358302],[35.34590241,-6.23585115],[35.34616822,-6.23592374]] } },
+    { "type": "Feature", "properties": { "kind": "pipe", "name": "School garden edge pipe", "description": "Runs the full width of the school garden plot, from the corner nearest the tanks to the far corner. The original surveyed pipe only reached partway; extended straight to the far corner, ending in a tap. 1.5\" HDPE, Class C distribution line." },
+      "geometry": { "type": "LineString", "coordinates": [[35.34590812,-6.2358302],[35.34630043,-6.23593734]] } },
+    { "type": "Feature", "properties": { "kind": "pipe", "name": "School garden header pipe", "description": "New header line: runs the plot's length from the tank-side corner, then turns and runs the width, feeding 5 taps along the way. 1.5\" HDPE." },
+      "geometry": { "type": "LineString", "coordinates": [[35.34590812,-6.2358302],[35.34580109,-6.23622294],[35.3461934,-6.23633008]] } },
     { "type": "Feature", "properties": { "kind": "pipe", "name": "Main women's garden pipe", "description": "Main line through the middle of the women's garden. 1.5\" HDPE, Class C distribution line — about 90 m to the far end of the women's garden side." },
       "geometry": { "type": "LineString", "coordinates": [[35.34588944,-6.23572544],[35.3459632,-6.23548035],[35.34649482,-6.23561782]] } },
     { "type": "Feature", "properties": { "kind": "pipe", "name": "Scoop sub pipe", "description": "Runs the length of a garden bed." },
