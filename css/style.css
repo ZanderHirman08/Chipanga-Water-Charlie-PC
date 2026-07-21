@@ -79,6 +79,47 @@ code { background: var(--earth-light); padding: 0 4px; border-radius: 4px; }
 .section { padding: 60px 0; }
 .section.alt { background: var(--green-light); }
 
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 40px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border);
+}
+.timeline-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 0 8px;
+}
+.timeline-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--border);
+  margin: 0 auto 12px;
+  position: relative;
+}
+.timeline-item.done .timeline-dot { background: var(--green); border-color: var(--green); }
+.timeline-item.upcoming .timeline-dot { background: #fff; border-color: var(--earth); }
+.timeline-label { font-size: .85rem; }
+
+@media (max-width: 760px) {
+  .timeline { flex-direction: column; gap: 24px; align-items: flex-start; }
+  .timeline::before { display: none; }
+  .timeline-item { text-align: left; display: flex; align-items: center; gap: 12px; padding: 0; }
+  .timeline-dot { margin: 0; flex-shrink: 0; }
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));

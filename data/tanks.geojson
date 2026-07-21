@@ -5,7 +5,7 @@
     { "type": "Feature", "properties": {
         "kind": "solar_array",
         "name": "Solar Array",
-        "description": "Solar panel footprint powering the borehole pump.",
+        "description": "12 x 580W panels powering a DIFFUL solar submersible pump at the borehole.",
         "photo": "images/solar-array.jpg"
       },
       "geometry": { "type": "Polygon", "coordinates": [[[35.34561811,-6.23614419],[35.34569444,-6.23613441],[35.34568486,-6.23610486],[35.34560467,-6.23610673],[35.34561513,-6.23614839],[35.34561811,-6.23614419]]] } },
@@ -26,13 +26,13 @@
     { "type": "Feature", "properties": {
         "kind": "tank",
         "name": "School Garden Tank",
-        "description": "8,000 gallons."
+        "description": "8,000 liters, 2 m wide x 2.5 m tall, on a 3 m stand (0.3-0.55 bar depending on fill level)."
       },
       "geometry": { "type": "Point", "coordinates": [35.34588898, -6.23578903] } },
     { "type": "Feature", "properties": {
         "kind": "tank",
         "name": "Women's Garden Tank",
-        "description": "8,000 gallons."
+        "description": "8,000 liters, 2 m wide x 2.5 m tall, on a 3 m stand (0.3-0.55 bar depending on fill level)."
       },
       "geometry": { "type": "Point", "coordinates": [35.34589745, -6.23574596] } }
   ]
