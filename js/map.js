@@ -61,6 +61,7 @@ function coordsToLatLng(coord) {
 const KIND_STYLE = {
   womens_garden:          { color: '#4c7a5e', weight: 2, fillOpacity: 0.25 },
   school_garden:          { color: '#3d7ea6', weight: 2, fillOpacity: 0.3 },
+  school_building:        { color: '#22302a', weight: 2, fillOpacity: 0.5 },
   well_structure:         { color: '#a9754f', weight: 2, fillOpacity: 0.35 },
   solar_array:            { color: '#e5b800', weight: 2, fillOpacity: 0.3 },
   solar_fence:            { color: '#c0392b', weight: 2, dashArray: '4 3' },
@@ -131,15 +132,17 @@ Promise.all([
   fetch('data/well.geojson').then(r => r.json()),
   fetch('data/tanks.geojson').then(r => r.json()),
   fetch('data/pipes.geojson').then(r => r.json()),
-  fetch('data/taps.geojson').then(r => r.json())
-]).then(([plots, well, tanks, pipes, taps]) => {
+  fetch('data/taps.geojson').then(r => r.json()),
+  fetch('data/school.geojson').then(r => r.json())
+]).then(([plots, well, tanks, pipes, taps, school]) => {
   const overlays = {
     'Garden plots': geoLayer(plots),
     'Bore hole': geoLayer(well),
     'Solar & pump': geoLayer(tanks, f => ['solar_array', 'solar_fence', 'pump'].includes(f.properties.kind)),
     'Water tanks': geoLayer(tanks, f => f.properties.kind === 'tank'),
     'Piping': geoLayer(pipes),
-    'Taps': geoLayer(taps)
+    'Taps': geoLayer(taps),
+    'School buildings': geoLayer(school)
   };
 
   const bounds = L.latLngBounds([]);

@@ -1,0 +1,18 @@
+{
+  "type": "FeatureCollection",
+  "properties": { "note": "Traced from satellite imagery in QGIS, 2026-07-21." },
+  "features": [
+    { "type": "Feature", "properties": { "kind": "school_building", "name": "School building 1" },
+      "geometry": { "type": "Polygon", "coordinates": [[[35.34544023,-6.23724849],[35.3453819,-6.23744917],[35.34545099,-6.23746969],[35.34550662,-6.23726989],[35.34544023,-6.23724849]]] } },
+    { "type": "Feature", "properties": { "kind": "school_building", "name": "School building 2" },
+      "geometry": { "type": "Polygon", "coordinates": [[[35.34552995,-6.23728238],[35.34554879,-6.23721638],[35.34571658,-6.23726811],[35.34569594,-6.23733144],[35.34552995,-6.23728238]]] } },
+    { "type": "Feature", "properties": { "kind": "school_building", "name": "School building 3" },
+      "geometry": { "type": "Polygon", "coordinates": [[[35.34574978,-6.23733144],[35.34581438,-6.23735195],[35.34572735,-6.23763827],[35.34565826,-6.23761597],[35.34574978,-6.23733144]]] } },
+    { "type": "Feature", "properties": { "kind": "school_building", "name": "School building 4" },
+      "geometry": { "type": "Polygon", "coordinates": [[[35.34535498,-6.23747644],[35.34544437,-6.23750002],[35.34534585,-6.23782556],[35.34525919,-6.23779564],[35.34535498,-6.23747644]]] } },
+    { "type": "Feature", "properties": { "kind": "school_building", "name": "School building 5" },
+      "geometry": { "type": "Polygon", "coordinates": [[[35.34549337,-6.23703787],[35.34550648,-6.23699035],[35.34553115,-6.23699878],[35.34553963,-6.23698039],[35.34560516,-6.23700108],[35.34560054,-6.23701717],[35.34561519,-6.23702101],[35.34559977,-6.23706853],[35.34549337,-6.23703787]]] } },
+    { "type": "Feature", "properties": { "kind": "school_building", "name": "School building 6" },
+      "geometry": { "type": "Polygon", "coordinates": [[[35.34577247,-6.23707389],[35.34576167,-6.23711528],[35.34586268,-6.23714287],[35.34587501,-6.23710531],[35.34577247,-6.23707389]]] } }
+  ]
+}
