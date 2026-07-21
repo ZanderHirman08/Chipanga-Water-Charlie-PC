@@ -4,8 +4,10 @@ const CARTO_LIGHT_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}
 const CARTO_ATTR = '&copy; OpenStreetMap contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
 const ESRI_SAT_URL = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
 const ESRI_ATTR = 'Tiles &copy; Esri &mdash; Esri, Maxar, Earthstar Geographics';
+const CHIPANGA_LATLNG = [-6.2359, 35.3459];
+const REGIONAL_ZOOM = 13;
 
-const map = L.map('site-map', { zoomControl: true });
+const map = L.map('site-map', { zoomControl: true }).setView(CHIPANGA_LATLNG, REGIONAL_ZOOM);
 
 const satelliteLayer = L.tileLayer(ESRI_SAT_URL, { maxZoom: 19, attribution: ESRI_ATTR }).addTo(map);
 const lightLayer = L.tileLayer(CARTO_LIGHT_URL, { maxZoom: 22, attribution: CARTO_ATTR });
@@ -34,7 +36,6 @@ map.addControl(new FullscreenControl());
 document.addEventListener('fullscreenchange', () => setTimeout(() => map.invalidateSize(), 50));
 
 // --- Locator inset: shows where Chipanga sits within Tanzania --------------
-const CHIPANGA_LATLNG = [-6.2359, 35.3459];
 const locatorWrap = L.DomUtil.create('div', 'map-locator-wrap');
 document.getElementById('site-map').appendChild(locatorWrap);
 const locatorDiv = L.DomUtil.create('div', 'map-locator', locatorWrap);
@@ -150,7 +151,26 @@ Promise.all([
     layer.addTo(map);
     if (layer.getBounds().isValid()) bounds.extend(layer.getBounds());
   });
-  if (bounds.isValid()) map.fitBounds(bounds, { padding: [40, 40] });
+
+  // Map opens on a wide regional view (set at creation); once it's scrolled
+  // into view, fly smoothly into the detailed site bounds — a one-time
+  // animated reveal rather than continuously tying zoom to scroll position.
+  if (bounds.isValid()) {
+    const flyIn = () => map.flyToBounds(bounds, { padding: [40, 40], duration: 2.2 });
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            flyIn();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(document.getElementById('site-map'));
+    } else {
+      flyIn();
+    }
+  }
 
   const baseMaps = { 'Satellite': satelliteLayer, 'Light': lightLayer };
   L.control.layers(baseMaps, overlays, { collapsed: false }).addTo(map);
