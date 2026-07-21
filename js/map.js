@@ -7,8 +7,8 @@ const ESRI_ATTR = 'Tiles &copy; Esri &mdash; Esri, Maxar, Earthstar Geographics'
 
 const map = L.map('site-map', { zoomControl: true });
 
-const lightLayer = L.tileLayer(CARTO_LIGHT_URL, { maxZoom: 22, attribution: CARTO_ATTR }).addTo(map);
-const satelliteLayer = L.tileLayer(ESRI_SAT_URL, { maxZoom: 19, attribution: ESRI_ATTR });
+const satelliteLayer = L.tileLayer(ESRI_SAT_URL, { maxZoom: 19, attribution: ESRI_ATTR }).addTo(map);
+const lightLayer = L.tileLayer(CARTO_LIGHT_URL, { maxZoom: 22, attribution: CARTO_ATTR });
 
 L.control.scale({ position: 'bottomleft', metric: true, imperial: false }).addTo(map);
 map.attributionControl.setPosition('bottomleft');
@@ -35,14 +35,23 @@ document.addEventListener('fullscreenchange', () => setTimeout(() => map.invalid
 
 // --- Locator inset: shows where Chipanga sits within Tanzania --------------
 const CHIPANGA_LATLNG = [-6.2359, 35.3459];
-const locatorDiv = L.DomUtil.create('div', 'map-locator');
-document.getElementById('site-map').appendChild(locatorDiv);
+const locatorWrap = L.DomUtil.create('div', 'map-locator-wrap');
+document.getElementById('site-map').appendChild(locatorWrap);
+const locatorDiv = L.DomUtil.create('div', 'map-locator', locatorWrap);
+const locatorLabel = L.DomUtil.create('div', 'map-locator-label', locatorWrap);
+locatorLabel.textContent = 'Chipanga, Tanzania';
+
 const locatorMap = L.map(locatorDiv, {
   zoomControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false,
   touchZoom: false, boxZoom: false, keyboard: false, attributionControl: false
-}).setView(CHIPANGA_LATLNG, 5);
+}).setView(CHIPANGA_LATLNG, 5.2);
 L.tileLayer(CARTO_LIGHT_URL, { maxZoom: 10 }).addTo(locatorMap);
-L.circleMarker(CHIPANGA_LATLNG, { radius: 6, color: '#c0392b', fillColor: '#c0392b', fillOpacity: 1, weight: 2 }).addTo(locatorMap);
+
+const pulseIcon = L.divIcon({
+  html: '<div class="locator-pulse"></div><div class="locator-dot"></div>',
+  className: '', iconSize: [16, 16], iconAnchor: [8, 8]
+});
+L.marker(CHIPANGA_LATLNG, { icon: pulseIcon }).addTo(locatorMap);
 
 // Leaflet expects [lat,lng]; GeoJSON stores [lng,lat] — flip on load.
 function coordsToLatLng(coord) {
@@ -140,7 +149,7 @@ Promise.all([
   });
   if (bounds.isValid()) map.fitBounds(bounds, { padding: [40, 40] });
 
-  const baseMaps = { 'Light': lightLayer, 'Satellite': satelliteLayer };
+  const baseMaps = { 'Satellite': satelliteLayer, 'Light': lightLayer };
   L.control.layers(baseMaps, overlays, { collapsed: false }).addTo(map);
 }).catch(err => {
   console.error('Failed to load map data', err);

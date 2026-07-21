@@ -166,17 +166,52 @@ code { background: var(--earth-light); padding: 0 4px; border-radius: 4px; }
 }
 .map-fullscreen-btn:hover { background: var(--green-light); }
 
-.map-locator {
+.map-locator-wrap {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  width: 110px;
-  height: 110px;
+  width: 140px;
   border-radius: 8px;
   border: 2px solid #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
   z-index: 1000;
   overflow: hidden;
+  background: #fff;
+}
+.map-locator {
+  width: 140px;
+  height: 120px;
+}
+.map-locator-label {
+  font-size: .72rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 4px 6px;
+  background: var(--ink);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.locator-dot {
+  position: absolute;
+  top: 5px; left: 5px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #e63946;
+  border: 1.5px solid #fff;
+  box-shadow: 0 0 2px rgba(0,0,0,.6);
+}
+.locator-pulse {
+  position: absolute;
+  top: 0; left: 0;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: rgba(230,57,70,.55);
+  animation: locatorPulse 1.8s ease-out infinite;
+}
+@keyframes locatorPulse {
+  0% { transform: scale(0.4); opacity: .9; }
+  100% { transform: scale(1.8); opacity: 0; }
 }
 
 .leaflet-tooltip.map-tooltip {
