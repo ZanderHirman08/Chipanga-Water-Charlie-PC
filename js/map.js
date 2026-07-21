@@ -1,11 +1,48 @@
 // Real survey data (EPSG:4326 lat/lng) exported from notes.gpkg, field-collected
 // with QField near Chipanga, Tanzania on 2026-07-08.
-const map = L.map('site-map');
+const CARTO_LIGHT_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+const CARTO_ATTR = '&copy; OpenStreetMap contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+const ESRI_SAT_URL = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+const ESRI_ATTR = 'Tiles &copy; Esri &mdash; Esri, Maxar, Earthstar Geographics';
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  maxZoom: 22,
-  attribution: '&copy; OpenStreetMap contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-}).addTo(map);
+const map = L.map('site-map', { zoomControl: true });
+
+const lightLayer = L.tileLayer(CARTO_LIGHT_URL, { maxZoom: 22, attribution: CARTO_ATTR }).addTo(map);
+const satelliteLayer = L.tileLayer(ESRI_SAT_URL, { maxZoom: 19, attribution: ESRI_ATTR });
+
+L.control.scale({ position: 'bottomleft', metric: true, imperial: false }).addTo(map);
+map.attributionControl.setPosition('bottomleft');
+
+// --- Fullscreen toggle (native Fullscreen API, no plugin dependency) -------
+const FullscreenControl = L.Control.extend({
+  options: { position: 'topleft' },
+  onAdd: function () {
+    const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+    const link = L.DomUtil.create('a', 'map-fullscreen-btn', container);
+    link.href = '#';
+    link.title = 'Toggle fullscreen';
+    link.innerHTML = '&#x26F6;';
+    L.DomEvent.on(link, 'click', L.DomEvent.stop).on(link, 'click', () => {
+      const el = map.getContainer();
+      if (!document.fullscreenElement) el.requestFullscreen();
+      else document.exitFullscreen();
+    });
+    return container;
+  }
+});
+map.addControl(new FullscreenControl());
+document.addEventListener('fullscreenchange', () => setTimeout(() => map.invalidateSize(), 50));
+
+// --- Locator inset: shows where Chipanga sits within Tanzania --------------
+const CHIPANGA_LATLNG = [-6.2359, 35.3459];
+const locatorDiv = L.DomUtil.create('div', 'map-locator');
+document.getElementById('site-map').appendChild(locatorDiv);
+const locatorMap = L.map(locatorDiv, {
+  zoomControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false,
+  touchZoom: false, boxZoom: false, keyboard: false, attributionControl: false
+}).setView(CHIPANGA_LATLNG, 5);
+L.tileLayer(CARTO_LIGHT_URL, { maxZoom: 10 }).addTo(locatorMap);
+L.circleMarker(CHIPANGA_LATLNG, { radius: 6, color: '#c0392b', fillColor: '#c0392b', fillOpacity: 1, weight: 2 }).addTo(locatorMap);
 
 // Leaflet expects [lat,lng]; GeoJSON stores [lng,lat] — flip on load.
 function coordsToLatLng(coord) {
@@ -56,6 +93,11 @@ function popupFor(feature) {
   return `<strong>${title}</strong>${desc}${photo}`;
 }
 
+function labelFor(feature) {
+  const p = feature.properties;
+  return p.name || p.label || '';
+}
+
 function pointRenderer(feature, latlng) {
   return L.marker(latlng, { icon: iconFor(feature.properties.kind) });
 }
@@ -66,7 +108,13 @@ function geoLayer(data, filterFn) {
     coordsToLatLng,
     style: styleFor,
     pointToLayer: pointRenderer,
-    onEachFeature: (f, l) => l.bindPopup(popupFor(f))
+    onEachFeature: (f, l) => {
+      l.bindPopup(popupFor(f));
+      const label = labelFor(f);
+      if (label) {
+        l.bindTooltip(label, { direction: 'top', className: 'map-tooltip', sticky: true });
+      }
+    }
   });
 }
 
@@ -93,7 +141,8 @@ Promise.all([
   });
   if (bounds.isValid()) map.fitBounds(bounds, { padding: [40, 40] });
 
-  L.control.layers(null, overlays, { collapsed: false }).addTo(map);
+  const baseMaps = { 'Light': lightLayer, 'Satellite': satelliteLayer };
+  L.control.layers(baseMaps, overlays, { collapsed: false }).addTo(map);
 }).catch(err => {
   console.error('Failed to load map data', err);
   document.getElementById('map-note').innerHTML +=
